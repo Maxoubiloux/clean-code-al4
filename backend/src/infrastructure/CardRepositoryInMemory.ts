@@ -18,19 +18,12 @@ export class CardRepositoryInMemory implements CardRepository {
     }
 
     async findByTag(tag: Tag): Promise<Card[]> {
-        return Array.from(this.cards.values()).filter(card => 
+        return Array.from(this.cards.values()).filter(card =>
             card.getTags().some(t => t.getValue() === tag.getValue())
         );
     }
 
     async findDueCards(currentDate: Date): Promise<Card[]> {
-        return Array.from(this.cards.values()).filter(card => {
-            const nextReview = card.getNextReviewDate();
-            // A card is due if nextReview <= currentDate (and is not null/undefined if that logic applies)
-            // Assuming getNextReviewDate returns a Date.
-            // If getNextReviewDate returns something optional, we need to handle it.
-            // Based on domain files viewed previously, let's assume it returns Date.
-            return nextReview && nextReview <= currentDate;
-        });
+        return Array.from(this.cards.values()).filter(card => card.isDue(currentDate));
     }
 }
