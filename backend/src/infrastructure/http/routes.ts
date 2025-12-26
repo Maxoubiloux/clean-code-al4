@@ -14,8 +14,8 @@ const router = Router();
 // Exporting them or creating a container file would be better usually.
 // For now, let's instantiate here, but be aware that if this file is re-imported or Express handles it weirdly, state might reset.
 // Actually, 'import' caches modules, so top-level variables are singletons per process.
-const cardRepository = new CardRepositoryInMemory();
-const clock = new SystemClock();
+export const cardRepository = new CardRepositoryInMemory();
+export const clock = new SystemClock();
 
 const answerCard = new AnswerCard(cardRepository, clock);
 const answerCardController = new AnswerCardController(answerCard);
