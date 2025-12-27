@@ -1,0 +1,17 @@
+src/application/AnswerCard.test.ts(3,10): error TS2305: Module '"../ports/Clock"' has no exported member 'FakeClock'.
+src/application/AnswerCard.test.ts(7,7): error TS2420: Class 'MockCardRepository' incorrectly implements interface 'CardRepository'.
+  Property 'delete' is missing in type 'MockCardRepository' but required in type 'CardRepository'.
+src/application/AnswerCard.test.ts(45,34): error TS2345: Argument of type 'MockCardRepository' is not assignable to parameter of type 'CardRepository'.
+  Property 'delete' is missing in type 'MockCardRepository' but required in type 'CardRepository'.
+src/application/ForceValidateCard.test.ts(3,10): error TS2305: Module '"../ports/Clock"' has no exported member 'FakeClock'.
+src/application/ForceValidateCard.test.ts(7,7): error TS2420: Class 'MockCardRepository' incorrectly implements interface 'CardRepository'.
+  Property 'delete' is missing in type 'MockCardRepository' but required in type 'CardRepository'.
+src/application/ForceValidateCard.test.ts(45,41): error TS2345: Argument of type 'MockCardRepository' is not assignable to parameter of type 'CardRepository'.
+  Property 'delete' is missing in type 'MockCardRepository' but required in type 'CardRepository'.
+src/infrastructure/http/controllers/CardController.ts(70,18): error TS6133: 'req' is declared but its value is never read.
+src/infrastructure/http/controllers/QuizController.ts(8,28): error TS2307: Cannot find module '../../../../application/AnswerCard' or its corresponding type declarations.
+src/infrastructure/http/controllers/QuizController.ts(18,23): error TS6133: 'req' is declared but its value is never read.
+src/infrastructure/http/controllers/QuizController.ts(98,19): error TS6133: 'quizId' is declared but its value is never read.
+src/infrastructure/http/routes.ts(50,28): error TS6133: 'req' is declared but its value is never read.
+src/infrastructure/http/routes.ts(68,40): error TS6133: 'req' is declared but its value is never read.
+src/infrastructure/http/routes.ts(71,23): error TS6133: 'req' is declared but its value is never read.

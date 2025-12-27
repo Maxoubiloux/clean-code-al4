@@ -4,6 +4,8 @@ export class ReviewSession {
     private cardIds: string[];
     private completed: boolean;
 
+    private answers: Map<string, boolean> = new Map();
+
     private constructor(
         private readonly sessionId: string,
         private readonly userId: UserId,
@@ -41,6 +43,20 @@ export class ReviewSession {
         if (!this.cardIds.includes(cardId)) {
             this.cardIds.push(cardId);
         }
+    }
+
+    recordAnswer(cardId: string, correct: boolean): void {
+        this.answers.set(cardId, correct);
+    }
+
+    getStats() {
+        let correct = 0;
+        let incorrect = 0;
+        for (const isCorrect of this.answers.values()) {
+            if (isCorrect) correct++;
+            else incorrect++;
+        }
+        return { correct, incorrect, total: this.answers.size };
     }
 
     complete(): void {

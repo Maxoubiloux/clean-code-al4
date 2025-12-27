@@ -7,4 +7,5 @@ export interface CardRepository {
     findAll(): Promise<Card[]>;
     findByTag(tag: Tag): Promise<Card[]>;
     findDueCards(currentDate: Date): Promise<Card[]>;
+    delete(cardId: string): Promise<void>;
 }
