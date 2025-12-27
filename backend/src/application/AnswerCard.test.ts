@@ -1,6 +1,6 @@
 import { AnswerCard } from './AnswerCard';
 import { CardRepository } from '../ports/CardRepository';
-import { FakeClock } from '../ports/Clock';
+import { FakeClock } from '../infrastructure/FakeClock';
 import { Card } from '../domain/Card';
 import { Tag } from '../domain/Tag';
 
@@ -31,6 +31,10 @@ class MockCardRepository implements CardRepository {
 
     addCard(card: Card): void {
         this.cards.set(card.getCardId(), card);
+    }
+
+    async delete(cardId: string): Promise<void> {
+        this.cards.delete(cardId);
     }
 }
 

@@ -67,7 +67,7 @@ export class CardController {
         }
     }
 
-    async update(req: Request, res: Response) {
+    async update(_req: Request, res: Response) {
         // Since Card doesn't have partial update method easily available and is creating simpler implementation
         // For strict DDD we should have methods on Card to update content.
         // But Card is immutable-ish in this design? 

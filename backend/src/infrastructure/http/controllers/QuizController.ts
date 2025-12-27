@@ -5,7 +5,7 @@ import { CardRepository } from '../../../ports/CardRepository';
 import { Clock } from '../../../ports/Clock';
 import { ReviewSession } from '../../../domain/ReviewSession';
 import { UserId } from '../../../domain/UserId';
-import { AnswerCard } from '../../../../application/AnswerCard';
+import { AnswerCard } from '../../../application/AnswerCard';
 
 export class QuizController {
     constructor(
@@ -15,7 +15,7 @@ export class QuizController {
         private readonly clock: Clock
     ) { }
 
-    private getUserId(req: Request): UserId {
+    private getUserId(_req: Request): UserId {
         // TODO: Extract from token or context
         return UserId.create('demo-user');
     }
@@ -95,7 +95,7 @@ export class QuizController {
 
     async answer(req: Request, res: Response) {
         try {
-            const { quizId } = req.params;
+            const { quizId: _quizId } = req.params;
             const { cardId, userAnswer } = req.body;
 
             const result = await this.answerCard.execute({ cardId, userAnswer });

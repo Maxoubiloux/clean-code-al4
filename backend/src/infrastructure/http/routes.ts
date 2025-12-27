@@ -47,7 +47,7 @@ router.get('/tags/:tagName/cards', (req, res) => {
     return cardController.list(req, res);
 });
 
-router.get('/tags', async (req, res) => {
+router.get('/tags', async (_req, res) => {
     try {
         const cards = await cardRepository.findAll();
         const tags = new Map<string, number>();
@@ -65,10 +65,10 @@ router.get('/tags', async (req, res) => {
 });
 
 // Notifications & Stats (Mock)
-router.get('/notifications/settings', (req, res) => res.json({ enabled: false, time: '09:00', updatedAt: new Date().toISOString() }));
+router.get('/notifications/settings', (_req, res) => res.json({ enabled: false, time: '09:00', updatedAt: new Date().toISOString() }));
 router.put('/notifications/settings', (req, res) => res.json({ enabled: req.body.enabled, time: req.body.time, updatedAt: new Date().toISOString() }));
 
-router.get('/stats', (req, res) => res.json({
+router.get('/stats', (_req, res) => res.json({
     totalCards: 0,
     learnedCards: 0,
     cardsByCategory: {
