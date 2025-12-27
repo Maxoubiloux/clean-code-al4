@@ -115,7 +115,10 @@ export class QuizController {
                 cardId
             });
 
-        } catch (error) {
+        } catch (error: any) {
+            if (error.message && error.message.includes('Card not found')) {
+                return res.status(404).json({ error: { message: error.message } });
+            }
             return res.status(500).json({ error: { message: 'Internal Server Error' } });
         }
     }
