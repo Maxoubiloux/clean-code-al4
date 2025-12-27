@@ -26,4 +26,8 @@ export class CardRepositoryInMemory implements CardRepository {
     async findDueCards(currentDate: Date): Promise<Card[]> {
         return Array.from(this.cards.values()).filter(card => card.isDue(currentDate));
     }
+
+    async delete(cardId: string): Promise<void> {
+        this.cards.delete(cardId);
+    }
 }
